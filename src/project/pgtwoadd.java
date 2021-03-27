@@ -1,33 +1,34 @@
 package project;
 import java.util.*;
-
-public class pgtwoadd {        
+class Solution {
     public int[] solution(int[] numbers) {
-        int[] answer = {};
-        List<Integer> arrList = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
         
         for(int i = 0; i<numbers.length ; i++ ) {   
             for(int j = i+1; j<numbers.length ; j++ ) {
-                arrList.add(numbers[i]+numbers[j]);
+                set.add(numbers[i]+numbers[j]);
             }
         }
-        
+        int[] answer = new int[set.size()];
+        Iterator<Integer> it = set.iterator();
+        for(int i=0; i<set.size(); i++) {
+            answer[i] = it.next();
+        }
+        Arrays.sort(answer);
         return answer;
     }
-    /**
-     * @param args
-     */
+}
+public class pgtwoadd {        
+    
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+
         int[] array = {2,1,3,4,1};
         int[] ans = {};
-        ans = solution(array);
-        
+        Solution sl = new Solution();
+        ans = sl.solution(array);
         for(int outp : ans) {
             System.out.println(outp);
         }
-        
-        //System.out.println("Hello test!");
     }
 
 }
