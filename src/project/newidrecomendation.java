@@ -71,9 +71,9 @@ class Solutionn {
         //1st
         answer = new_id.toLowerCase();
         //2nd
-        answer = answer.replaceAll("[^a-z0-9-_.]", "");
-        //3rd
-        answer = answer.replaceAll("[.]{2,}]", "");
+        answer = answer.replaceAll("[^-_.a-z0-9]", "");
+        //3rd\
+        answer = answer.replaceAll("[.]{2,}", ".");
         //4th
         answer = answer.replaceAll("^[.]|[.]$", "");
         //5th
@@ -97,10 +97,10 @@ class Solutionn {
 
 public class newidrecomendation {
     public static void main(String[] args) {
-        //String new_id = "...!@BaT#*..y.abcdefghijklm" ;
+        String new_id = "...!@BaT#*..y.abcdefghijklm" ;
         //String new_id = "z-+.^.";
         //String new_id = "=.=";
-        String new_id = "123_.def";
+        //String new_id = "123_.def";
         //String new_id = "abcdefghijklmn.p";
         //String new_id = "abcdefghijklnmoptqrsvwxyz";
         Solutionn a = new Solutionn();
