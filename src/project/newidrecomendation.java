@@ -1,23 +1,108 @@
 package project;
+import java.util.*;
 
 class Solutionn {
     public String solution(String new_id) {
         String answer = "";
-        System.out.println(new_id);
+        
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        /*
+        //1st
+        String step1 = new_id.toLowerCase();
 
-        new_id = new_id.toLowerCase();
-        System.out.println("1 : " + new_id);
+        //2nd
+        char[] step1_arr = step1.toCharArray();
+        StringBuilder step2 = new StringBuilder();
+        for(char c : step1_arr) {
+            if((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '-' || c == '_' || c == '.') {
+                step2.append(c);
+            }
+        }
 
-        new_id.
+        //3rd
+        String step3 = step2.toString().replace("..", ".") ;
+        while(step3.contains("..")) {
+            step3 = step3.replace("..", ".");
+        }
 
+        //4rd
+        String step4 = step3;
+        if (step4.length() > 0) {
+            if(step4.charAt(0) == '.') {
+                step4 = step4.substring(1, step4.length());
+            }
+        }
+        if (step4.length() > 0) {
+            if(step4.charAt(step4.length() - 1) == '.') {
+                step4 = step4.substring(0,step4.length()-1);
+            }
+        }
 
+        //5rd
+        String step5 = step4;
+        if (step5.equals("")) {
+            step5 = "a";
+        }
+
+        //6rd
+        String step6 = step5;
+        if(step6.length() >= 16) {
+            step6 = step6.substring(0,15);
+
+            if(step6.charAt(step6.length()-1) == '.') {
+                step6 = step6.substring(0, step6.length() - 1);
+            }
+        }
+        
+        //7rd
+        StringBuilder step7 = new StringBuilder(step6);
+        if(step7.length() <= 2) {
+            char last = step7.charAt(step7.length() - 1);
+
+            while(step7.length() < 3 ){{
+                step7.append(last);
+            }}
+        }
+
+        answer = step7.toString();
+        */
+        //---------------------------------------------------------------------------------------------------------------------------------------
+        
+        //1st
+        answer = new_id.toLowerCase();
+        //2nd
+        answer = answer.replaceAll("[^a-z0-9-_.]", "");
+        //3rd
+        answer = answer.replaceAll("[.]{2,}]", "");
+        //4th
+        answer = answer.replaceAll("^[.]|[.]$", "");
+        //5th
+        if(answer.equals("")){
+            answer += "a";
+        }
+        //6th
+        if(answer.length() >= 16) {
+            answer = answer.substring(0,15) ;
+            answer = answer.replaceAll("[.]$", "");
+        }
+        //7th
+        if(answer.length()<=2) {
+            while(answer.length()<3) {
+                answer += answer.charAt(answer.length() - 1);
+            }
+        }
         return answer;
     }
 }
 
 public class newidrecomendation {
     public static void main(String[] args) {
-        String new_id = "...!@BaT#*..y.abcdefghijklm" ;
+        //String new_id = "...!@BaT#*..y.abcdefghijklm" ;
+        //String new_id = "z-+.^.";
+        //String new_id = "=.=";
+        String new_id = "123_.def";
+        //String new_id = "abcdefghijklmn.p";
+        //String new_id = "abcdefghijklnmoptqrsvwxyz";
         Solutionn a = new Solutionn();
         String ans = a.solution(new_id);
         System.out.println(ans);
