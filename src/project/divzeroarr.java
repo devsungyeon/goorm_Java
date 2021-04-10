@@ -1,9 +1,11 @@
 package project;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class Solutiond {
     public int[] solution(int[] arr, int divisor) {
+        /*
         ArrayList<Integer> temp = new ArrayList<Integer>();
         for(int a : arr) {
             if(a % divisor == 0) {
@@ -20,6 +22,9 @@ class Solutiond {
         }
         
         return answer;
+        */
+
+        return Arrays.stream(arr).filter(factor -> factor % divisor == 0).toArray();
     }
 }
 
