@@ -34,6 +34,9 @@ public class Solution {
         for(int i = 0 ; i < answer.length; i++ ) {
             answer[i] = temp.get(i).intValue();
         }
+
+        Arrays.sort(answer);
+
         return answer;
     }
     
